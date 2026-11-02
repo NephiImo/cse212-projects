@@ -8,12 +8,19 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Create an array that can hold 'length' doubles.
+        // Step 2: Loop through every index of the array.
+        // Step 3: Calculate each multiple using the index.
+        // Step 4: Return the completed array.
 
-        return []; // replace this return statement with your own
+        double[] result = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -25,9 +32,28 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Calculate the index of the first element that will be moved to the beginning
+        int startIndex = data.Count - amount;
+
+        // Step 2: Create a temporary list to hold the elements that will be moved
+        List<int> temp = new List<int>();
+
+        // Step 3: Add the elements that will be moved to the temporary list
+        for (int i = startIndex; i < data.Count; i++)
+        {
+            temp.Add(data[i]);
+        }
+
+        // Step 4: Remove the elements that were added to the temporary list from the original list
+        for (int i = 0; i < amount; i++)
+        {
+            data.RemoveAt(startIndex);
+        }
+
+        // Step 5: Add the elements from the temporary list to the beginning of the original list
+        for (int i = temp.Count - 1; i >= 0; i--)
+        {
+            data.Insert(0, temp[i]);
+        }
     }
 }
